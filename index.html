@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Factoria | Restaurant & Bar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f5f2;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .title-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .menu-item:hover .menu-overlay {
+            opacity: 1;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .cocktail-card:hover .cocktail-overlay {
+            opacity: 1;
+        }
+        
+        .animate-pulse-slow {
+            animation: pulse 3s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="flex items-center">
+                        <span class="title-font text-2xl font-bold text-red-600">La Factoria</span>
+                    </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button">
+                        <svg class="w-6 h-6 text-gray-700" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                            <path d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Desktop menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-red-600 font-medium">Home</a>
+                    <a href="#about" class="hover:text-red-600 transition">About</a>
+                    <a href="#menu" class="hover:text-red-600 transition">Menu</a>
+                    <a href="#events" class="hover:text-red-600 transition">Events</a>
+                    <a href="#cocktails" class="hover:text-red-600 transition">Cocktails</a>
+                    <a href="#contact" class="hover:text-red-600 transition">Contact</a>
+                    <a href="#reservations" class="bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition">Reservations</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="hidden mobile-menu bg-white">
+            <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-red-600">Home</a>
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-red-600">About</a>
+                <a href="#menu" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-red-600">Menu</a>
+                <a href="#events" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-red-600">Events</a>
+                <a href="#cocktails" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-red-600">Cocktails</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-red-600">Contact</a>
+                <a href="#reservations" class="block px-3 py-2 text-base font-medium text-white bg-red-600 rounded">Reservations</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero min-h-screen flex items-center justify-center text-white pt-16">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="title-font text-5xl md:text-7xl font-bold mb-6 animate-pulse-slow">La Factoria</h1>
+            <p class="text-xl md:text-2xl mb-8">Authentic flavors. Vibrant atmosphere. Unforgettable days.</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#reservations" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full transition duration-300">Book a Table</a>
+                <a href="#events" class="bg-transparent hover:bg-white hover:text-red-600 text-white font-bold py-3 px-8 border-2 border-white rounded-full transition duration-300">View Events</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="title-font text-4xl font-bold mb-6 text-red-600">Our Story</h2>
+                    <p class="text-lg mb-6">In the heart of the city, where the sun kisses the pavement and the rhythm of life pulses with sabor, La Factoria was born—not just as a restaurant, but as a movement. Inspired by the vibrant cultures of Latin America, its a place where the midday sun isnt a pause—its a party.<br>
+                    Founded by a group of friends who grew up dancing to reggaetón in their abuelas kitchens and sipping micheladas on rooftops, La Factoria was created to celebrate the joy of daytime revelry. They saw a gap in the scene: too many places waited for the night to come alive. So they flipped the script.
+                    .</p>
+                    <p class="text-lg mb-8">- 🌴 Tropical courtyard meets urban chic: Think lush greenery, colorful murals by local Latino artists, and open-air seating that lets the sunshine pour in.<br>
+                    - 🎶 Curated Latin beats: From salsa to cumbia, dembow to bachata, the music is always moving—just like the crowd.<br>
+                    - 🍹 Signature cocktails with a twist: Tamarind mezcal mules, guava mojitos, and spicy mangonadas served in vibrant glassware that screams fiesta.<br>
+                    - 🍽️ Dayfade bites: Shareable plates inspired by street food from Mexico, Colombia, Puerto Rico, and beyond—perfect for grazing while dancing.
+                    </p>
+                    <div class="flex space-x-4">
+                        <div class="bg-red-100 p-4 rounded-lg text-center">
+                            <i class="fas fa-utensils text-red-600 text-3xl mb-2"></i>
+                            <p class="font-bold">Authentic Cuisine</p>
+                        </div>
+                        <div class="bg-red-100 p-4 rounded-lg text-center">
+                            <i class="fas fa-music text-red-600 text-3xl mb-2"></i>
+                            <p class="font-bold">Live Music</p>
+                        </div>
+                        <div class="bg-red-100 p-4 rounded-lg text-center">
+                            <i class="fas fa-cocktail text-red-600 text-3xl mb-2"></i>
+                            <p class="font-bold">Craft Cocktails</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="rounded-lg overflow-hidden shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1398&q=80" alt="Restaurant interior" class="w-full h-full object-cover">
+                        </div>
+                        <div class="rounded-lg overflow-hidden shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Chef cooking" class="w-full h-full object-cover">
+                        </div>
+                        <div class="rounded-lg overflow-hidden shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Cocktails" class="w-full h-full object-cover">
+                        </div>
+                        <div class="rounded-lg overflow-hidden shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="DJ performance" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="title-font text-4xl font-bold mb-4 text-red-600">Our Menu</h2>
+                <p class="text-xl max-w-2xl mx-auto">From traditional dishes to modern interpretations, our menu celebrates the diversity of Latin cuisine.</p>
+            </div>
+            
+            <div class="flex flex-wrap mb-12">
+                <div class="w-full border-b border-gray-300">
+                    <div class="flex flex-wrap -mb-px">
+                        <button class="menu-tab active mr-8 py-4 px-1 border-b-2 border-red-600 font-medium text-red-600" data-tab="brunch">Brunch</button>
+                        <button class="menu-tab mr-8 py-4 px-1 border-b-2 border-transparent font-medium text-gray-600 hover:text-red-600" data-tab="appetizers">Appetizers</button>
+                        <button class="menu-tab mr-8 py-4 px-1 border-b-2 border-transparent font-medium text-gray-600 hover:text-red-600" data-tab="mains">Main Courses</button>
+                        <button class="menu-tab py-4 px-1 border-b-2 border-transparent font-medium text-gray-600 hover:text-red-600" data-tab="desserts">Desserts</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Brunch Menu -->
+            <div class="menu-content active" id="brunch">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">Huevos Rancheros</h3>
+                            <span class="text-red-600 font-bold">$14</span>
+                        </div>
+                        <p class="text-gray-600">Fried eggs on corn tortillas topped with ranchero sauce, black beans, queso fresco, and avocado.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">Arepa Benedict</h3>
+                            <span class="text-red-600 font-bold">$16</span>
+                        </div>
+                        <p class="text-gray-600">Venezuelan arepa topped with pulled pork, poached eggs, and hollandaise with a Latin twist.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">Tropical Pancakes</h3>
+                            <span class="text-red-600 font-bold">$12</span>
+                        </div>
+                        <p class="text-gray-600">Fluffy pancakes with coconut, mango, and passion fruit syrup, topped with toasted almonds.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">Chilaquiles Verdes</h3>
+                            <span class="text-red-600 font-bold">$13</span>
+                        </div>
+                        <p class="text-gray-600">Crispy tortilla chips simmered in green tomatillo sauce, topped with chicken, crema, and queso fresco.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Appetizers Menu -->
+            <div class="menu-content hidden" id="appetizers">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">Empanadas Trio</h3>
+                            <span class="text-red-600 font-bold">$11</span>
+                        </div>
+                        <p class="text-gray-600">Three crispy empanadas: beef picadillo, chicken, and cheese with guava.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">Ceviche Mixto</h3>
+                            <span class="text-red-600 font-bold">$15</span>
+                        </div>
+                        <p class="text-gray-600">Fresh seafood marinated in lime juice with red onion, cilantro, and sweet potato.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">Tostones Rellenos</h3>
+                            <span class="text-red-600 font-bold">$10</span>
+                        </div>
+                        <p class="text-gray-600">Twice-fried plantain cups filled with shredded beef, black beans, and avocado.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">Queso Fundido</h3>
+                            <span class="text-red-600 font-bold">$12</span>
+                        </div>
+                        <p class="text-gray-600">Melted Oaxaca cheese with chorizo, poblano peppers, served with warm tortillas.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Main Courses Menu -->
+            <div class="menu-content hidden" id="mains">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">Ropa Vieja</h3>
+                            <span class="text-red-600 font-bold">$22</span>
+                        </div>
+                        <p class="text-gray-600">Cuban-style shredded beef stewed with tomatoes, peppers, and onions, served with white rice and sweet plantains.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">Pollo a la Brasa</h3>
+                            <span class="text-red-600 font-bold">$19</span>
+                        </div>
+                        <p class="text-gray-600">Peruvian-style rotisserie chicken marinated in spices, served with fries and huancaina sauce.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">Pabellón Criollo</h3>
+                            <span class="text-red-600 font-bold">$24</span>
+                        </div>
+                        <p class="text-gray-600">Venezuelan national dish: shredded beef, black beans, white rice, and sweet plantains.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">Pescado a la Veracruzana</h3>
+                            <span class="text-red-600 font-bold">$26</span>
+                        </div>
+                        <p class="text-gray-600">Fresh fish fillet cooked in a sauce of tomatoes, capers, olives, and herbs.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Desserts Menu -->
+            <div class="menu-content hidden" id="desserts">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">Tres Leches Cake</h3>
+                            <span class="text-red-600 font-bold">$9</span>
+                        </div>
+                        <p class="text-gray-600">Sponge cake soaked in three kinds of milk, topped with whipped cream and berries.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">Flan de Coco</h3>
+                            <span class="text-red-600 font-bold">$8</span>
+                        </div>
+                        <p class="text-gray-600">Creamy coconut custard with caramel sauce and toasted coconut flakes.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">Churros con Chocolate</h3>
+                            <span class="text-red-600 font-bold">$10</span>
+                        </div>
+                        <p class="text-gray-600">Crispy fried dough sticks dusted with cinnamon sugar, served with thick hot chocolate.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">Dulce de Leche Cheesecake</h3>
+                            <span class="text-red-600 font-bold">$11</span>
+                        </div>
+                        <p class="text-gray-600">Rich cheesecake swirled with Argentine dulce de leche, on a Maria cookie crust.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="title-font text-4xl font-bold mb-4 text-red-600">Upcoming Events</h2>
+                <p class="text-xl max-w-2xl mx-auto">Join us for unforgettable nights of music, sports, and celebration.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Event 1 -->
+                <div class="event-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="DJ Night" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold">DJ Night</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Latin Beats with DJ Carlos</h3>
+                            <span class="text-red-600 font-bold">$10 Cover</span>
+                        </div>
+                        <div class="flex items-center text-gray-600 mb-4">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>Friday, June 16 | 9PM - 2AM</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Join us for an electrifying night of salsa, reggaeton, and Latin house with renowned DJ Carlos Mendez.</p>
+                        <a href="#" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition duration-300">RSVP Now</a>
+                    </div>
+                </div>
+                
+                <!-- Event 2 -->
+                <div class="event-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Watch Party" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold">Watch Party</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">World Cup Final Watch Party</h3>
+                            <span class="text-red-600 font-bold">Free Entry</span>
+                        </div>
+                        <div class="flex items-center text-gray-600 mb-4">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>Sunday, July 15 | 1PM - 5PM</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Cheer for your favorite team on our giant screens with drink specials and Latin-inspired game day bites.</p>
+                        <a href="#" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition duration-300">RSVP Now</a>
+                    </div>
+                </div>
+                
+                <!-- Event 3 -->
+                <div class="event-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1514525253161-7a3d1b576c30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Live Music" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold">Live Music</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Salsa Night with Orquesta Latina</h3>
+                            <span class="text-red-600 font-bold">$15 Cover</span>
+                        </div>
+                        <div class="flex items-center text-gray-600 mb-4">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>Saturday, June 24 | 8PM - 1AM</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Dance the night away to live salsa music from the 12-piece Orquesta Latina. Dance floor open all night!</p>
+                        <a href="#" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition duration-300">RSVP Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-transparent hover:bg-red-600 text-red-600 hover:text-white font-bold py-3 px-8 border-2 border-red-600 rounded-full transition duration-300">View All Events</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cocktails Section -->
+    <section id="cocktails" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="title-font text-4xl font-bold mb-4 text-red-600">Signature Cocktails</h2>
+                <p class="text-xl max-w-2xl mx-auto">Handcrafted drinks that tell the story of Latin America.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cocktail 1 -->
+                <div class="cocktail-card bg-white rounded-lg overflow-hidden shadow-lg relative">
+                    <img src="https://images.unsplash.com/photo-1551751299-1b51cab2694c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Mojito" class="w-full h-64 object-cover">
+                    <div class="cocktail-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 transition duration-300">
+                        <div class="text-center p-6">
+                            <h3 class="text-white text-2xl font-bold mb-2">Mojito Cubano</h3>
+                            <p class="text-white mb-4">White rum, fresh mint, lime juice, sugar, and soda water</p>
+                            <span class="text-red-400 font-bold text-xl">$12</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Mojito Cubano</h3>
+                        <p class="text-gray-600">The classic Cuban cocktail refreshed with mint and lime.</p>
+                    </div>
+                </div>
+                
+                <!-- Cocktail 2 -->
+                <div class="cocktail-card bg-white rounded-lg overflow-hidden shadow-lg relative">
+                    <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1586&q=80" alt="Caipirinha" class="w-full h-64 object-cover">
+                    <div class="cocktail-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 transition duration-300">
+                        <div class="text-center p-6">
+                            <h3 class="text-white text-2xl font-bold mb-2">Caipirinha</h3>
+                            <p class="text-white mb-4">Cachaça, lime, and sugar - Brazil's national cocktail</p>
+                            <span class="text-red-400 font-bold text-xl">$14</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Caipirinha</h3>
+                        <p class="text-gray-600">Brazil's national cocktail made with cachaça, sugar, and lime.</p>
+                    </div>
+                </div>
+                
+                <!-- Cocktail 3 -->
+                <div class="cocktail-card bg-white rounded-lg overflow-hidden shadow-lg relative">
+                    <img src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Margarita" class="w-full h-64 object-cover">
+                    <div class="cocktail-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 transition duration-300">
+                        <div class="text-center p-6">
+                            <h3 class="text-white text-2xl font-bold mb-2">Margarita Especial</h3>
+                            <p class="text-white mb-4">Tequila, Cointreau, lime juice, and agave nectar with a chili-salt rim</p>
+                            <span class="text-red-400 font-bold text-xl">$13</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Margarita Especial</h3>
+                        <p class="text-gray-600">Our twist on the classic with a chili-salt rim for an extra kick.</p>
+                    </div>
+                </div>
+                
+                <!-- Cocktail 4 -->
+                <div class="cocktail-card bg-white rounded-lg overflow-hidden shadow-lg relative">
+                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Pisco Sour" class="w-full h-64 object-cover">
+                    <div class="cocktail-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 transition duration-300">
+                        <div class="text-center p-6">
+                            <h3 class="text-white text-2xl font-bold mb-2">Pisco Sour</h3>
+                            <p class="text-white mb-4">Pisco, lime juice, simple syrup, egg white, and bitters</p>
+                            <span class="text-red-400 font-bold text-xl">$15</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Pisco Sour</h3>
+                        <p class="text-gray-600">Peru's national drink with a frothy egg white topping.</p>
+                    </div>
+                </div>
+                
+                <!-- Cocktail 5 -->
+                <div class="cocktail-card bg-white rounded-lg overflow-hidden shadow-lg relative">
+                    <img src="https://images.unsplash.com/photo-1556855810-ac423f0b7e7a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Cuba Libre" class="w-full h-64 object-cover">
+                    <div class="cocktail-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 transition duration-300">
+                        <div class="text-center p-6">
+                            <h3 class="text-white text-2xl font-bold mb-2">Cuba Libre</h3>
+                            <p class="text-white mb-4">Dark rum, Coca-Cola, lime juice, and a splash of vanilla</p>
+                            <span class="text-red-400 font-bold text-xl">$11</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Cuba Libre</h3>
+                        <p class="text-gray-600">Rum and Coke elevated with fresh lime and a hint of vanilla.</p>
+                    </div>
+                </div>
+                
+                <!-- Cocktail 6 -->
+                <div class="cocktail-card bg-white rounded-lg overflow-hidden shadow-lg relative">
+                    <img src="https://images.unsplash.com/photo-1514361892635-6b07e31e75f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Michelada" class="w-full h-64 object-cover">
+                    <div class="cocktail-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 transition duration-300">
+                        <div class="text-center p-6">
+                            <h3 class="text-white text-2xl font-bold mb-2">Michelada Picante</h3>
+                            <p class="text-white mb-4">Mexican beer, lime juice, assorted sauces, spices, and chili peppers</p>
+                            <span class="text-red-400 font-bold text-xl">$10</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Michelada Picante</h3>
+                        <p class="text-gray-600">Mexico's ultimate beer cocktail with a spicy, savory kick.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservations Section -->
+    <section id="reservations" class="py-20 bg-red-600 text-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="title-font text-4xl font-bold mb-6">Make a Reservation</h2>
+                <p class="text-xl mb-10">Book your table for an unforgettable Latin dining experience.</p>
+                
+                <form class="bg-white text-gray-800 rounded-lg shadow-xl p-8">
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="name" class="block text-left text-gray-700 font-medium mb-2">Full Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-600">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-left text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-600">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-left text-gray-700 font-medium mb-2">Phone</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-600">
+                        </div>
+                        <div>
+                            <label for="guests" class="block text-left text-gray-700 font-medium mb-2">Number of Guests</label>
+                            <select id="guests" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-600">
+                                <option>1 person</option>
+                                <option>2 people</option>
+                                <option>3 people</option>
+                                <option>4 people</option>
+                                <option>5 people</option>
+                                <option>6+ people</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="date" class="block text-left text-gray-700 font-medium mb-2">Date</label>
+                            <input type="date" id="date" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-600">
+                        </div>
+                        <div>
+                            <label for="time" class="block text-left text-gray-700 font-medium mb-2">Time</label>
+                            <select id="time" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-600">
+                                <option>11:00 AM</option>
+                                <option>12:00 PM</option>
+                                <option>1:00 PM</option>
+                                <option>2:00 PM</option>
+                                <option>5:00 PM</option>
+                                <option>6:00 PM</option>
+                                <option>7:00 PM</option>
+                                <option>8:00 PM</option>
+                                <option>9:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="special-requests" class="block text-left text-gray-700 font-medium mb-2">Special Requests</label>
+                        <textarea id="special-requests" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-600"></textarea>
+                    </div>
+                    <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 border-2 border-white">Book Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="title-font text-4xl font-bold mb-6 text-red-600">Contact Us</h2>
+                    <p class="text-lg mb-8">Have questions or want to host a private event? Reach out to us!</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-red-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-red-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Address</h3>
+                                <p class="text-gray-600">123 Calle Ocho, Miami, FL 33135</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-red-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-red-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Phone</h3>
+                                <p class="text-gray-600">(503) 747-8401</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-red-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-red-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Email</h3>
+                                <p class="text-gray-600">lafactoriapdx@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-red-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-clock text-red-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Hours</h3>
+                                <p class="text-gray-600 mb-2">Monday - Thursday: 11AM - 11PM</p>
+                                <p class="text-gray-600 mb-2">Friday - Saturday: 11AM - 2AM</p>
+                                <p class="text-gray-600">Sunday: 10AM - 10PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h3 class="font-bold text-lg mb-4">Follow Us</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-red-100 hover:bg-red-600 text-red-600 hover:text-white p-3 rounded-full transition duration-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="bg-red-100 hover:bg-red-600 text-red-600 hover:text-white p-3 rounded-full transition duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="bg-red-100 hover:bg-red-600 text-red-600 hover:text-white p-3 rounded-full transition duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="bg-red-100 hover:bg-red-600 text-red-600 hover:text-white p-3 rounded-full transition duration-300">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-gray-100 p-8 rounded-lg h-full">
+                        <h3 class="title-font text-2xl font-bold mb-6 text-red-600">Send Us a Message</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label for="contact-name" class="block text-gray-700 font-medium mb-2">Name</label>
+                                <input type="text" id="contact-name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-600">
+                            </div>
+                            <div class="mb-4">
+                                <label for="contact-email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                <input type="email" id="contact-email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-600">
+                            </div>
+                            <div class="mb-4">
+                                <label for="contact-subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                                <input type="text" id="contact-subject" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-600">
+                            </div>
+                            <div class="mb-6">
+                                <label for="contact-message" class="block text-gray-700 font-medium mb-2">Message</label>
+                                <textarea id="contact-message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-600"></textarea>
+                            </div>
+                            <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full transition duration-300">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="title-font text-2xl font-bold mb-4 text-red-600">Sabor Latino</h3>
+                    <p class="mb-4">Bringing the flavors and rhythms of Latin America to your table since 2010.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-yelp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#menu" class="text-gray-400 hover:text-white transition">Menu</a></li>
+                        <li><a href="#events" class="text-gray-400 hover:text-white transition">Events</a></li>
+                        <li><a href="#cocktails" class="text-gray-400 hover:text-white transition">Cocktails</a></li>
+                        <li><a href="#reservations" class="text-gray-400 hover:text-white transition">Reservations</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Hours</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Monday - Thursday: 8AM -3PM - 4PM-12AM</li>
+                        <li>Friday - Saturday: 9AM - 1AM</li>
+                        <li>Sunday: 10AM - 10PM</li>
+                        <li class="mt-4">Brunch: Sat-Sun 10AM-3PM</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Subscribe to get updates on events and special offers.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l focus:outline-none text-gray-800">
+                        <button type="submit" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-r transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; © 2025 La Factoria. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Menu tabs
+        const menuTabs = document.querySelectorAll('.menu-tab');
+        const menuContents = document.querySelectorAll('.menu-content');
+        
+        menuTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                menuTabs.forEach(t => t.classList.remove('active', 'border-red-600', 'text-red-600'));
+                menuContents.forEach(c => c.classList.remove('active'));
+                menuContents.forEach(c => c.classList.add('hidden'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active', 'border-red-600', 'text-red-600');
+                
+                // Show corresponding content
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+                document.getElementById(tabId).classList.remove('hidden');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
